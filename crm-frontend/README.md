@@ -30,3 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Ayudas en diseño
 
 http://www.responsinator.com/
+
+## Soporte linux
+sudo sysctl -w fs.inotify.max_user_watches=524288
+cat /proc/sys/fs/inotify/max_user_watches
