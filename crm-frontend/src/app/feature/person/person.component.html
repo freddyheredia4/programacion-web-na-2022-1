@@ -1,4 +1,4 @@
-<div class="grid justify-center mt-4 " >
+<div class="grid justify-center mt-4 gap-2" >
   <div class="card card-compact  bg-base-100 shadow-2xl shadow-black" >
     <div class="card-body">
       <h2 class="card-title justify-center font-bold uppercase">Crud de <span class="text-primary">personas</span> </h2>
@@ -18,6 +18,15 @@
         <button class="btn btn-primary btn-sm" (click)="save()" >Guardar</button>
         <button class="btn btn-secondary btn-sm">Cancelar</button>
       </div>
+    </div>
+  </div>
+  <div class="card card-compact bg-red-200 shadow-2xl shadow-black">
+    <div class="card-body">
+      <div class="card-title">Zona  de peligro</div>
+    </div>
+    <p class="text-xs p-4" >Recuerde que luego de la eliminación no podrá recuperar la data</p>
+    <div class="card-actions justify-end ">
+      <button class="btn btn-warning btn-sm m-4" (click)="delete()" >Eliminar</button>
     </div>
   </div>
 </div>

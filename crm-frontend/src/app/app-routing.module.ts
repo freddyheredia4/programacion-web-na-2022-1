@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonComponent } from './feature/person/person.component';
 
 const routes: Routes = [
-  {path: 'person', component:PersonComponent}
+  {path: '', redirectTo: '/layout', pathMatch: 'full'},
+  {path: 'feature', loadChildren:() => import('./feature/feature.module').then(m => m.FeatureModule)},
+  {path: 'layout', loadChildren:() => import('./layout/layout.module').then(m => m.LayoutModule)}
 ];
 
 @NgModule({

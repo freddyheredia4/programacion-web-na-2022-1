@@ -23,5 +23,14 @@ export class PersonService {
       return this.http.post<Person>(this.url+"/save", person, this.httpOptions);
     }
 
+    //Read
+    public findById(id: number): Observable<Person>{
+      return this.http.get<Person>(this.url+"/"+id, this.httpOptions);
+    }
+
+    public deleteById(id: number): Observable<void>{
+      console.log(id);
+      return this.http.delete<void>(this.url+"/delete/"+id, this.httpOptions);
+    }
 
 }
