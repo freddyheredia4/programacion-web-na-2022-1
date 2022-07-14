@@ -34,3 +34,8 @@ http://www.responsinator.com/
 ## Soporte linux
 sudo sysctl -w fs.inotify.max_user_watches=524288
 cat /proc/sys/fs/inotify/max_user_watches
+
+
+## Iconos
+
+https://www.flaticon.es/
