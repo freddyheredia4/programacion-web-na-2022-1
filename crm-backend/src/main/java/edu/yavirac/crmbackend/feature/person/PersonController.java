@@ -48,7 +48,7 @@ public class PersonController {
         personService.deleteByID(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/findAll")
     public List findAll(){
         return personService.findAll();
     }

@@ -1,5 +1,6 @@
 export interface Person {
     id: number,
     name: string,
-    dni: string
+    dni: string,
+    enabled: boolean
 }

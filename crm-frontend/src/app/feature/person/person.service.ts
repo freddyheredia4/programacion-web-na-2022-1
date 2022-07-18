@@ -33,4 +33,9 @@ export class PersonService {
       return this.http.delete<void>(this.url+"/delete/"+id, this.httpOptions);
     }
 
+    public findAll():Observable<Person[]>{
+      return this.http.get<Person[]>(this.url+"/findAll", this.httpOptions);
+    }
+
+
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonComponent } from './feature/person/person.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/layout', pathMatch: 'full'},

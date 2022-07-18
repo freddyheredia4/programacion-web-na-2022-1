@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from './person';
-import { PersonService } from './person.service';
+import { Person } from '../person';
+import { PersonService } from '../person.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,8 @@ export class PersonComponent implements OnInit {
   currentPerson: Person = {
     id: 0,
     name: "",
-    dni: ""
+    dni: "",
+    enabled: false
   };
 
   constructor(
@@ -42,7 +43,8 @@ export class PersonComponent implements OnInit {
         this.currentPerson = {
           id: 0,
           name: "",
-          dni: ""
+          dni: "",
+          enabled: false
         };
       } 
     )
@@ -66,7 +68,8 @@ export class PersonComponent implements OnInit {
         this.currentPerson = {
           id: 0,
           name: "",
-          dni: ""
+          dni: "",
+          enabled: false
         };
       }
     )
