@@ -32,5 +32,9 @@ public class PersonService {
         return personRepository.findAll();
     }
 
+    public List<Person> findByName(String term){
+        return personRepository.findByNameLikeIgnoreCase(term);
+    }
+
     
 }

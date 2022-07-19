@@ -37,5 +37,9 @@ export class PersonService {
       return this.http.get<Person[]>(this.url+"/findAll", this.httpOptions);
     }
 
+    public findByName(term: string):Observable<Person[]>{
+      return this.http.get<Person[]>(this.url+"/findByName/"+term, this.httpOptions);
+    }
+
 
 }

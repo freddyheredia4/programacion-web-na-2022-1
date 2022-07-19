@@ -8,12 +8,12 @@
             </svg>
             Nuevo
         </button>
-        <div class="text-sm breadcrumbs ml-2 ">
+        <div class="text-sm breadcrumbs ml-2 flex-auto">
             <ul>
                 <li><a routerLink="/layout/person-list" >Personas</a></li>
-                <li>Registro</li>
+                <li>{{item}}</li>
             </ul>
         </div>
     
-    <input type="text" placeholder="Search" class=" input input-bordered input-sm w-20 ml-2" />
+    <input #inputSearch type="text" placeholder="Buscar" class=" input input-bordered input-sm w-20 ml-2" (input)="onInput(inputSearch.value)" />
 </div>
