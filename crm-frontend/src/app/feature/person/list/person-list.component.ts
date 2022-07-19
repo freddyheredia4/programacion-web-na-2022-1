@@ -26,4 +26,16 @@ export class PersonListComponent implements OnInit {
     );
   }
 
+  findByName(term: string): void {
+    if (term.length===0) {
+      this.findAll();
+    }
+    if (term.length>=2){
+      this.personService.findByName(term).subscribe(
+        (response) => this.persons = response
+       )
+    }
+
+  }
+
 }

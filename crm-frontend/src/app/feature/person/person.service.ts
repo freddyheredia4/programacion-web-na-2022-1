@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Person } from './person';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PersonService {
     headers: new HttpHeaders({"Content-Type":"application/json"})
   }
 
-  private url:string = "http://localhost:8080/api/person";
+  private url:string = environment.API_URL +  "/person";
 
   constructor(
     private http: HttpClient
@@ -35,6 +36,10 @@ export class PersonService {
 
     public findAll():Observable<Person[]>{
       return this.http.get<Person[]>(this.url+"/findAll", this.httpOptions);
+    }
+
+    public findByName(term: string): Observable<Person[]> {
+      return this.http.get<Person[]>(this.url+"/findByName/"+term, this.httpOptions);
     }
 
 
