@@ -13,7 +13,8 @@ export class PersonComponent implements OnInit {
     id: 0,
     name: "",
     dni: "",
-    enabled: false
+    enabled: false,
+    cityId: 0
   };
 
   constructor(
@@ -27,8 +28,6 @@ export class PersonComponent implements OnInit {
         let id:string;
          if (params.get("id")){
           id = params.get("id")!;
-          console.log("el id es:" + params.get("id"));
-          console.log("el id convertido es:" + id);
           this.findById(parseInt(id));
          }
       }
@@ -39,12 +38,13 @@ export class PersonComponent implements OnInit {
     this.personService.save(this.currentPerson)
     .subscribe(
       (response) => {
-        console.log("registro guardar");
+        console.log("registro guardado");
         this.currentPerson = {
           id: 0,
           name: "",
           dni: "",
-          enabled: false
+          enabled: false,
+          cityId: 0
         };
       } 
     )
@@ -55,7 +55,6 @@ export class PersonComponent implements OnInit {
     .subscribe(
       (reponse: Person) => {
         this.currentPerson = reponse;
-        console.log("lectura del id"+this.currentPerson.id);
       }
     )
   }
@@ -64,15 +63,16 @@ export class PersonComponent implements OnInit {
     this.personService.deleteById(this.currentPerson.id)
     .subscribe(
       () => {
-        console.log("Registro eliminado");
         this.currentPerson = {
           id: 0,
           name: "",
           dni: "",
-          enabled: false
+          enabled: false,
+          cityId: 0
         };
       }
     )
   }
+
 
 }

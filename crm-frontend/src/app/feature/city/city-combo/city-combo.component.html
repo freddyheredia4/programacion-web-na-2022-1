@@ -1,0 +1,7 @@
+<select class="select w-full max-w-xs" #citySelect (change)="onChange(citySelect.value)">
+    <option disabled selected>Seleccione una ciudad</option>
+    <option [value]="city.id" *ngFor="let city of cities" 
+    [selected]="city.id === id">
+        {{city.name}}
+    </option>
+</select>
