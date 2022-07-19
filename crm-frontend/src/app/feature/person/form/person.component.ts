@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../person';
 import { PersonService } from '../person.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthorityService } from '../../authority/authority.service';
+import { Authority } from '../../authority/authority';
 
 @Component({
   selector: 'app-person',
@@ -9,17 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PersonComponent implements OnInit {
 
-  currentPerson: Person = {
-    id: 0,
-    name: "",
-    dni: "",
-    enabled: false,
-    cityId: 0
-  };
+  currentPerson: Person = this.reset();
 
   constructor(
     private personService: PersonService,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private authorityService: AuthorityService
   ) { }
 
   ngOnInit(): void {
@@ -38,14 +35,7 @@ export class PersonComponent implements OnInit {
     this.personService.save(this.currentPerson)
     .subscribe(
       (response) => {
-        console.log("registro guardado");
-        this.currentPerson = {
-          id: 0,
-          name: "",
-          dni: "",
-          enabled: false,
-          cityId: 0
-        };
+        this.reset();
       } 
     )
   }
@@ -55,6 +45,13 @@ export class PersonComponent implements OnInit {
     .subscribe(
       (reponse: Person) => {
         this.currentPerson = reponse;
+        this.currentPerson.authorities.forEach(
+          (item) => {
+            this.authorityService.findById(item.authorityId).subscribe(
+              (responseAuth:Authority) => item.name = responseAuth.name
+            )
+          }
+        )
       }
     )
   }
@@ -63,16 +60,30 @@ export class PersonComponent implements OnInit {
     this.personService.deleteById(this.currentPerson.id)
     .subscribe(
       () => {
-        this.currentPerson = {
-          id: 0,
-          name: "",
-          dni: "",
-          enabled: false,
-          cityId: 0
-        };
+        this.reset();
       }
     )
   }
 
+  reset(){
+    return this.currentPerson = {
+      id: 0,
+      name: "",
+      dni: "",
+      enabled: false,
+      cityId: 0,
+      authorities: []
+    };
+  }
+
+  addAuthority(newAuthority: Authority): void {
+    
+    this.currentPerson.authorities.push(
+      {
+        authorityId: newAuthority.authorityId,
+        name: newAuthority.name
+      }
+    )
+  }
 
 }

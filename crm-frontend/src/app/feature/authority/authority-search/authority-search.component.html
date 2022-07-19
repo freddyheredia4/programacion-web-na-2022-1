@@ -1,0 +1,9 @@
+<div class="dropdown dropdown-hover">
+    <input #inputTerm class="input input-primary input-sm" placeholder="Agregar" type="text"
+    (input)="onInput(inputTerm.value)">
+    <ul class="menu menu-compact dropdown-content bg-base-100">
+        <li *ngFor="let item of authorities">
+            <a (click)="onSelect(item)">{{item.name}}</a>
+        </li>
+    </ul>
+</div>

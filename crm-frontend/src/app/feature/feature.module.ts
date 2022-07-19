@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { PersonComponent } from './person/form/person.component';
 import { PersonListComponent } from './person/list/person-list.component';
 import { CityComboComponent } from './city/city-combo/city-combo.component';
+import { AuthoritySearchComponent } from './authority/authority-search/authority-search.component';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { CityComboComponent } from './city/city-combo/city-combo.component';
     PersonComponent,
     PersonToolbarComponent,
     PersonListComponent,
-    CityComboComponent
+    CityComboComponent,
+    AuthoritySearchComponent
   ],
   imports: [
     CommonModule,
