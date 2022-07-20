@@ -3,6 +3,7 @@ package edu.yavirac.crmbackend.auth;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/authority")
+@CrossOrigin({"*"})
 public class AuthorityController {
 
     @Autowired
@@ -26,7 +28,7 @@ public class AuthorityController {
         return authorityService.save(authority);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/findById/{id}")
     public Authority findById(@PathVariable long id){
         return authorityService.findById(id);
     }

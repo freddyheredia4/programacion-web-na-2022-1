@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { City } from '../city';
 import { CityService } from '../city.service';
 
@@ -14,6 +14,9 @@ export class CityComboboxComponent implements OnInit {
     private cityService: CityService
   ) { }
 
+  @Output() currentCityId = new EventEmitter<number>();
+  @Input() idInput: number = 0;
+
   ngOnInit(): void {
     this.findAll();
   }
@@ -22,6 +25,10 @@ export class CityComboboxComponent implements OnInit {
     this.cityService.findAll().subscribe(
       (response) => this.cities = response
     )
+  }
+
+  onChange(value: string):void {
+    this.currentCityId.emit(parseInt(value));
   }
 
 }

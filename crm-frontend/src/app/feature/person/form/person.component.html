@@ -17,21 +17,38 @@
             <span class="label-text ml-4">Activo</span>
           </label>
         </div>
-        <app-city-combobox></app-city-combobox>
+        <app-city-combobox [idInput]="currentPerson.cityId" (currentCityId)="currentPerson.cityId = $event">
+        </app-city-combobox>
       </div>
+
+      <div class="divider my-0">
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="table table-compact w-full">
+          <thead>
+            <tr>
+              <th>Permiso</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let auth of currentPerson.authorities">
+              <td>{{auth.name}}</td>
+              <td>Eliminar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divider my-0">
+      </div>
+
       <div class="card-actions justify-end">
         <button class="btn btn-primary btn-sm" (click)="save()">Guardar</button>
         <button class="btn btn-secondary btn-sm">Cancelar</button>
       </div>
     </div>
   </div>
-  <div class="card card-compact bg-red-200 shadow-2xl shadow-black">
-    <div class="card-body">
-      <div class="card-title">Zona de peligro</div>
-    </div>
-    <p class="text-xs p-4">Recuerde que luego de la eliminación no podrá recuperar la data</p>
-    <div class="card-actions justify-end ">
-      <button class="btn btn-warning btn-sm m-4" (click)="delete()">Eliminar</button>
-    </div>
-  </div>
+
 </div>
