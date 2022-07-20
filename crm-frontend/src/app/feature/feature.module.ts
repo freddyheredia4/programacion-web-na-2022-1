@@ -8,6 +8,9 @@ import { PersonComponent } from './person/form/person.component';
 import { PersonListComponent } from './person/list/person-list.component';
 import { CityComboComponent } from './city/city-combo/city-combo.component';
 import { AuthoritySearchComponent } from './authority/authority-search/authority-search.component';
+import { AuthorityFormComponent } from './authority/authority-form/authority-form.component';
+import { AuthorityListComponent } from './authority/authority-list/authority-list.component';
+import { AuthorityToolbarComponent } from './authority/authority-toolbar/authority-toolbar.component';
 
 
 
@@ -18,7 +21,10 @@ import { AuthoritySearchComponent } from './authority/authority-search/authority
     PersonToolbarComponent,
     PersonListComponent,
     CityComboComponent,
-    AuthoritySearchComponent
+    AuthoritySearchComponent,
+    AuthorityFormComponent,
+    AuthorityListComponent,
+    AuthorityToolbarComponent
   ],
   imports: [
     CommonModule,

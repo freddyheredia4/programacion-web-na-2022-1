@@ -44,7 +44,7 @@ public class AuthorityController {
         authorityService.deleteById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/findAll")
     public List<Authority> findAll(){
         return authorityService.findAll();
     }

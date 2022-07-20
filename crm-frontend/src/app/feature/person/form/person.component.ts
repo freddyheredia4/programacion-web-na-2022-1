@@ -86,4 +86,8 @@ export class PersonComponent implements OnInit {
     )
   }
 
+  onDelete(id: number):void{
+     this.currentPerson.authorities = this.currentPerson.authorities.filter((auth) => auth.authorityId != id);
+  }
+
 }
