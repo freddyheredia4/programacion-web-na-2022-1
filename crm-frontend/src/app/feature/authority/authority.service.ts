@@ -23,4 +23,8 @@ export class AuthorityService {
   public findById(id: number):Observable<Authority>{
     return this.http.get<Authority>(this.url+"/findById/"+id, this.httpOptions);
   }
+
+  public findByName(term: string): Observable<Authority[]>{
+    return this.http.get<Authority[]>(this.url+"/findByName/"+term, this.httpOptions);
+  }
 }

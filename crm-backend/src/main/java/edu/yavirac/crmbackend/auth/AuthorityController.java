@@ -49,5 +49,10 @@ public class AuthorityController {
         return authorityService.findAll();
     }
     
+    @GetMapping("/findByName/{term}")
+    public List<Authority> findByName(@PathVariable String term){
+        System.out.println("Backend:"+term);
+        return authorityService.findByName(term);
+    }
     
 }

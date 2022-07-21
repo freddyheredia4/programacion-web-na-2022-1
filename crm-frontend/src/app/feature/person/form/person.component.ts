@@ -82,5 +82,9 @@ export class PersonComponent implements OnInit {
       authorities: []
     };
   }
+  
+  onSelect(authority:Authority): void {
+    this.currentPerson.authorities.push(authority);
+  }
 
 }

@@ -24,11 +24,11 @@
       <div class="divider my-0">
       </div>
 
-      <div class="overflow-x-auto">
+
         <table class="table table-compact w-full">
           <thead>
             <tr>
-              <th>Permiso</th>
+              <th>Permisos</th>
               <th>Eliminar</th>
             </tr>
           </thead>
@@ -37,9 +37,15 @@
               <td>{{auth.name}}</td>
               <td>Eliminar</td>
             </tr>
+            <tr>
+              <td>
+                <app-authority-search (authorityEmiter)="onSelect($event)" ></app-authority-search>
+              </td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
-      </div>
+
 
       <div class="divider my-0">
       </div>
