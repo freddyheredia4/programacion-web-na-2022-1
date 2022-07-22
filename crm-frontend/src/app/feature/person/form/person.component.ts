@@ -87,4 +87,11 @@ export class PersonComponent implements OnInit {
     this.currentPerson.authorities.push(authority);
   }
 
+  removeAuthority(id: number){
+    this.currentPerson.authorities = 
+    this.currentPerson.authorities.filter(
+      (item) => item.authorityId != id
+    )
+  }
+
 }
